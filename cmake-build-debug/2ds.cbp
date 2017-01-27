@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="2ds"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\..\;CMake Files\..\..\;CMake Files\..\..\..\;CMake Files\..\..\..\..\;CMake Files\..\..\..\..\..\;CMake Files\..\..\..\..\..\usr\;CMake Files\..\..\..\..\..\usr\lib\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\;CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\glfw3\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/sonyahon/workspace/cpp/2ds/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/sonyahon/workspace/cpp/2ds/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/sonyahon/workspace/cpp/2ds/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/sonyahon/workspace/cpp/2ds/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/sonyahon/workspace/cpp/2ds/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/sonyahon/workspace/cpp/2ds/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/sonyahon/workspace/cpp/2ds/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/sonyahon/workspace/cpp/2ds/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/sonyahon/workspace/cpp/2ds/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/sonyahon/workspace/cpp/2ds/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/sonyahon/workspace/cpp/2ds/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/sonyahon/workspace/cpp/2ds/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/sonyahon/workspace/cpp/2ds/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/sonyahon/workspace/cpp/2ds/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/sonyahon/workspace/cpp/2ds/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="2ds">
+				<Option output="/home/sonyahon/workspace/cpp/2ds/cmake-build-debug/2ds" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/sonyahon/workspace/cpp/2ds/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include/freetype2"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/sonyahon/workspace/cpp/2ds/cmake-build-debug/Makefile&quot;  VERBOSE=1 2ds"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/sonyahon/workspace/cpp/2ds/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/sonyahon/workspace/cpp/2ds/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/sonyahon/workspace/cpp/2ds/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="2ds/fast">
+				<Option output="/home/sonyahon/workspace/cpp/2ds/cmake-build-debug/2ds" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/sonyahon/workspace/cpp/2ds/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include/freetype2"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+					<Add directory="/usr/include/c++/5"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/5"/>
+					<Add directory="/usr/include/c++/5/backward"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/sonyahon/workspace/cpp/2ds/cmake-build-debug/Makefile&quot;  VERBOSE=1 2ds/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/sonyahon/workspace/cpp/2ds/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/sonyahon/workspace/cpp/2ds/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/sonyahon/workspace/cpp/2ds/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/sonyahon/workspace/cpp/2ds/Shaders/ShaderProgram.cpp">
+			<Option target="2ds"/>
+		</Unit>
+		<Unit filename="/home/sonyahon/workspace/cpp/2ds/Shaders/ShaderProgram.h">
+			<Option target="2ds"/>
+		</Unit>
+		<Unit filename="/home/sonyahon/workspace/cpp/2ds/Sprites/Image.cpp">
+			<Option target="2ds"/>
+		</Unit>
+		<Unit filename="/home/sonyahon/workspace/cpp/2ds/Sprites/Image.h">
+			<Option target="2ds"/>
+		</Unit>
+		<Unit filename="/home/sonyahon/workspace/cpp/2ds/Sprites/Sprite.cpp">
+			<Option target="2ds"/>
+		</Unit>
+		<Unit filename="/home/sonyahon/workspace/cpp/2ds/Sprites/Sprite.h">
+			<Option target="2ds"/>
+		</Unit>
+		<Unit filename="/home/sonyahon/workspace/cpp/2ds/Utils/Camera.cpp">
+			<Option target="2ds"/>
+		</Unit>
+		<Unit filename="/home/sonyahon/workspace/cpp/2ds/Utils/Camera.h">
+			<Option target="2ds"/>
+		</Unit>
+		<Unit filename="/home/sonyahon/workspace/cpp/2ds/Utils/Display.cpp">
+			<Option target="2ds"/>
+		</Unit>
+		<Unit filename="/home/sonyahon/workspace/cpp/2ds/Utils/Display.h">
+			<Option target="2ds"/>
+		</Unit>
+		<Unit filename="/home/sonyahon/workspace/cpp/2ds/Utils/Enums.h">
+			<Option target="2ds"/>
+		</Unit>
+		<Unit filename="/home/sonyahon/workspace/cpp/2ds/Utils/Renderer.cpp">
+			<Option target="2ds"/>
+		</Unit>
+		<Unit filename="/home/sonyahon/workspace/cpp/2ds/Utils/Renderer.h">
+			<Option target="2ds"/>
+		</Unit>
+		<Unit filename="/home/sonyahon/workspace/cpp/2ds/Utils/Timer.cpp">
+			<Option target="2ds"/>
+		</Unit>
+		<Unit filename="/home/sonyahon/workspace/cpp/2ds/Utils/Timer.h">
+			<Option target="2ds"/>
+		</Unit>
+		<Unit filename="/home/sonyahon/workspace/cpp/2ds/Utils/Utils.h">
+			<Option target="2ds"/>
+		</Unit>
+		<Unit filename="/home/sonyahon/workspace/cpp/2ds/main.cpp">
+			<Option target="2ds"/>
+		</Unit>
+		<Unit filename="/home/sonyahon/workspace/cpp/2ds/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/sonyahon/workspace/cpp/2ds/../../../../../usr/lib/x86_64-linux-gnu/cmake/glfw3/glfw3ConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\glfw3\"/>
+		</Unit>
+		<Unit filename="/home/sonyahon/workspace/cpp/2ds/../../../../../usr/lib/x86_64-linux-gnu/cmake/glfw3/glfw3Config.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\glfw3\"/>
+		</Unit>
+		<Unit filename="/home/sonyahon/workspace/cpp/2ds/../../../../../usr/lib/x86_64-linux-gnu/cmake/glfw3/glfw3Targets.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\glfw3\"/>
+		</Unit>
+		<Unit filename="/home/sonyahon/workspace/cpp/2ds/../../../../../usr/lib/x86_64-linux-gnu/cmake/glfw3/glfw3Targets-noconfig.cmake">
+			<Option virtualFolder="CMake Files\..\..\..\..\..\usr\lib\x86_64-linux-gnu\cmake\glfw3\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
