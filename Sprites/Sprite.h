@@ -8,10 +8,15 @@
 #include <vector>
 
 #include "../Utils/Enums.h"
+#include "../Collisions/Collider.h"
 
 class Sprite {
 private: //Fields
 	//Mesh size
+
+    GLuint baseHeight;
+    GLuint baseWidth;
+
 	GLuint height;
 	GLuint width;
 
@@ -41,6 +46,8 @@ private: //Fields
 	float rW;
 	float rH;
 
+    Collider collider;
+
 public:
 	//<editor-fold desc="Constructors,Destructors">
 	Sprite();
@@ -65,9 +72,7 @@ public:
 
 	//<editor-fold desc="Setters">
 
-	void setHeight(GLuint height);
-	void setWidth(GLuint width);
-	void setSize(GLuint width, GLuint height);
+    void setCollider(ColliderType type, GLfloat x, GLfloat y, GLuint size1, GLuint size2);
 	void setPosition(const glm::vec2 &position);
 	void setPosition(GLfloat x, GLfloat y);
 	void setZLevel(GLfloat zLevel);
@@ -84,6 +89,9 @@ public:
 	void flipHorizontally();
 	void flipVertically();
 	void setTetxturePosition(int img_x, int img_y, int img_w, int img_h);
+
+    bool simpleCollide(Sprite &target);
+
 	//</editor-fold>
 
 	Sprite operator=(const Sprite& sprite);

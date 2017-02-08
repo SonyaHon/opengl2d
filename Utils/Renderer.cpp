@@ -1,7 +1,7 @@
 #include <iostream>
 #include <map>
 #include "Renderer.h"
-
+#include <glm/gtc/matrix_transform.hpp>
 
 struct Character {
 	GLuint TextureID;
@@ -12,10 +12,22 @@ struct Character {
 
 std::map<int, std::map<GLchar, Character> > Characters;
 
-Renderer::Renderer(Display& display, Camera& cam) : simple_shader_program("/home/sonyahon/workspace/cpp/2ds/Shaders/GLSL/simple_vertex.glsl",
-													 "/home/sonyahon/workspace/cpp/2ds/Shaders/GLSL/simle_fragment.glsl"),
-													textShader("/home/sonyahon/workspace/cpp/2ds/Shaders/GLSL/textVertex.glsl",
-													"/home/sonyahon/workspace/cpp/2ds/Shaders/GLSL/textFragment.glsl")
+Renderer::Renderer(Display& display, Camera& cam) :
+		//ShaderProgramms
+		simple_shader_program("/home/sonyahon/workspace/cpp/opengl2d/Shaders/GLSL/simple_vertex.glsl",
+							  "/home/sonyahon/workspace/cpp/opengl2d/Shaders/GLSL/simle_fragment.glsl"),
+		textShader("/home/sonyahon/workspace/cpp/opengl2d/Shaders/GLSL/textVertex.glsl",
+				   "/home/sonyahon/workspace/cpp/opengl2d/Shaders/GLSL/textFragment.glsl"),
+		finalFBORender("/home/sonyahon/workspace/cpp/opengl2d/Shaders/GLSL/postProccessing/default_vertex.glsl",
+					   "/home/sonyahon/workspace/cpp/opengl2d/Shaders/GLSL/postProccessing/default_fragment.glsl"),
+		setContrastProgram("/home/sonyahon/workspace/cpp/opengl2d/Shaders/GLSL/postProccessing/default_vertex.glsl",
+						   "/home/sonyahon/workspace/cpp/opengl2d/Shaders/GLSL/postProccessing/contrast_fragment.glsl"),
+		flatColorProgram("/home/sonyahon/workspace/cpp/opengl2d/Shaders/GLSL/flatVertex.glsl",
+						 "/home/sonyahon/workspace/cpp/opengl2d/Shaders/GLSL/flatFragment.glsl"),
+
+		//FBO`s
+		first(display.getMainWindowWidth(), display.getMainWindowHeight()),
+		second(display.getMainWindowWidth(), display.getMainWindowHeight())
 {
 	this->R = 0.0f;
 	this->B = 0.0f;
@@ -25,6 +37,8 @@ Renderer::Renderer(Display& display, Camera& cam) : simple_shader_program("/home
 	this->cam = &cam;
 	this->hasBgImage = false;
 	this->bg = nullptr;
+
+	this->isUsingFirts = true;
 
 	if(FT_Init_FreeType(&ft)) {
 		std::cout << "ASD" << std::endl;
@@ -42,8 +56,33 @@ Renderer::Renderer(Display& display, Camera& cam) : simple_shader_program("/home
 	glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat), 0);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
-}
 
+	const GLfloat vertexBuffer[] =  {-1.0f, 1.0f,
+									 -1.0f, -1.0f,
+									 1.0f, -1.0f,
+									 1.0f, -1.0f,
+									 1.0f, 1.0f,
+									 -1.0f, 1.0f};
+
+	const GLfloat uv_buffer[] = {0, 1,
+								 0, 0,
+								 1, 0,
+								 1, 0,
+								 1, 1,
+								 0, 1};
+
+	glGenVertexArrays(1, &mainSquadVAO);
+	glBindVertexArray(mainSquadVAO);
+	glGenBuffers(2, mainSquadVBOS);
+	glBindBuffer(GL_ARRAY_BUFFER, mainSquadVBOS[0]);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertexBuffer), vertexBuffer, GL_STATIC_DRAW);
+	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 0, (void *)0);
+	glBindBuffer(GL_ARRAY_BUFFER, mainSquadVBOS[1]);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(uv_buffer), uv_buffer, GL_STATIC_DRAW);
+	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, (void *)0);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindVertexArray(0);
+}
 
 Renderer::~Renderer() {
 	FT_Done_Face(font_face);
@@ -51,8 +90,10 @@ Renderer::~Renderer() {
 }
 
 void Renderer::prepare() {
-
+	glBindTexture(GL_TEXTURE_2D, 0);
+	glBindFramebuffer(GL_FRAMEBUFFER, isUsingFirts?first.getFbo_id():second.getFbo_id());
 	glClearColor(R, G, B, 1.0f);
+	glClearDepth(1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 
 	if(this->hasBgImage) {
@@ -68,6 +109,8 @@ void Renderer::setClearColor(GLfloat r, GLfloat g, GLfloat b) {
 }
 
 void Renderer::render_simple(Sprite &sprite) {
+	glBindTexture(GL_TEXTURE_2D, 0);
+	glBindFramebuffer(GL_FRAMEBUFFER, isUsingFirts?first.getFbo_id():second.getFbo_id());
 	simple_shader_program.start();
 	simple_shader_program.loadMatrix4(simple_shader_program.getUniformLocation("transformationMatrix"), sprite.genModelMatrix());
 	simple_shader_program.loadMatrix4(simple_shader_program.getUniformLocation("viewMatrix"), cam->getViewMatrix());
@@ -186,8 +229,94 @@ void Renderer::renderText(std::string text, GLfloat x, GLfloat y, GLfloat scale,
 	renderText(text, x, y, scale, color, font_id);
 }
 
+void Renderer::update() {
 
-//TODO Collision and physics engine
+	glBindTexture(GL_TEXTURE_2D, 0);
+	glBindFramebuffer(GL_FRAMEBUFFER, 0);
+	finalFBORender.start();
+	glBindVertexArray(this->mainSquadVAO);
+	glEnableVertexAttribArray(0);
+	glEnableVertexAttribArray(1);
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, isUsingFirts?first.getTexture_id():second.getTexture_id());
+	glDrawArrays(GL_TRIANGLES, 0, 6);
+	glDisableVertexAttribArray(0);
+	glDisableVertexAttribArray(1);
+	glBindVertexArray(0);
+	finalFBORender.stop();
+
+}
+
+void Renderer::setContrast(float value) {
+	isUsingFirts = !isUsingFirts;
+	glBindTexture(GL_TEXTURE_2D, 0);
+	glBindFramebuffer(GL_FRAMEBUFFER, isUsingFirts?first.getFbo_id():second.getFbo_id());
+	setContrastProgram.start();
+	setContrastProgram.loadFloat(setContrastProgram.getUniformLocation("contrast"), value);
+	glBindVertexArray(this->mainSquadVAO);
+	glEnableVertexAttribArray(0);
+	glEnableVertexAttribArray(1);
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, isUsingFirts?second.getTexture_id():first.getTexture_id());
+	glDrawArrays(GL_TRIANGLES, 0, 6);
+	glDisableVertexAttribArray(0);
+	glDisableVertexAttribArray(1);
+	glBindVertexArray(0);
+	setContrastProgram.stop();
+}
+
+
+
+void Renderer::drawRect(GLfloat x, GLfloat y, GLfloat width, GLfloat height, glm::vec4 color) {
+	const GLfloat vertex_buffer[] = {0, 0, 0,
+									 0, height, 0,
+									 width, 0, 0,
+									 width, 0, 0,
+									 0, height, 0,
+									 width, height, 0};
+	glm::mat4 transformation_matrix = glm::mat4(1.0f);
+	transformation_matrix = glm::translate(transformation_matrix, glm::vec3(x, y, -1));
+	GLuint tempVAO;
+	GLuint tempVBO;
+	glGenVertexArrays(1, &tempVAO);
+	glBindVertexArray(tempVAO);
+	glGenBuffers(1, &tempVBO);
+	glBindBuffer(GL_ARRAY_BUFFER, tempVBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertex_buffer), vertex_buffer, GL_STATIC_DRAW);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	flatColorProgram.start();
+	flatColorProgram.loadVector4(flatColorProgram.getUniformLocation("color"), color);
+	flatColorProgram.loadMatrix4(simple_shader_program.getUniformLocation("transformationMatrix"), transformation_matrix);
+	flatColorProgram.loadMatrix4(simple_shader_program.getUniformLocation("viewMatrix"), cam->getViewMatrix());
+	flatColorProgram.loadMatrix4(simple_shader_program.getUniformLocation("projectionMatrix"), this->projection_matrix);
+	glEnableVertexAttribArray(0);
+	glDrawArrays(GL_TRIANGLES, 0, 6);
+	glDisableVertexAttribArray(0);
+	glBindVertexArray(0);
+	flatColorProgram.stop();
+	glDeleteBuffers(1, &tempVBO);
+	glDeleteVertexArrays(1, &tempVAO);
+}
+
+void
+Renderer::drawRect(GLfloat x, GLfloat y, GLfloat width, GLfloat height, GLfloat r, GLfloat g, GLfloat b, GLfloat a) {
+	glm::vec4 color = glm::vec4(r, g, b, a);
+	drawRect(x, y, width, height, color);
+}
+
+void Renderer::drawCircle(GLfloat x, GLfloat y, GLfloat radius, glm::vec4 color) {
+	//Triangle_fan or check for shader drawing
+}
+
+void Renderer::drawCirlce(GLfloat x, GLfloat y, GLfloat radius, GLfloat r, GLfloat g, GLfloat b, GLfloat a) {
+	glm::vec4 color = glm::vec4(r, g, b, a);
+	drawCircle(x, y, radius, color);
+}
+
+
+//TODO Collision
 //TODO Optimize render proses
 //TODO DrawRect functions etc. Need to make some new shaders for it.
 //TODO Enums of keyboard`s buttons for glfw one`s
+//TODO More Post proccessing shit

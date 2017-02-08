@@ -2,18 +2,21 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <iostream>
 
-Sprite::Sprite(const Sprite &sprite) {
+Sprite::Sprite(const Sprite &sprite) { // Magic, don`t change
 
 }
 
-
 Sprite::Sprite() {
-	glCreateVertexArrays(1, &this->VAO_ID);
+	glGenVertexArrays(1, &this->VAO_ID);
 	glBindVertexArray(this->VAO_ID);
 
 	this->height = 0;
 	this->width = 0;
+    this->baseHeight = 0;
+    this->baseWidth = 0;
 	this->rotation = 0;
+
+    collider = Collider();
 
 	this->img_h = 0;
 	this->img_w = 0;
@@ -61,12 +64,16 @@ Sprite::Sprite() {
 }
 
 Sprite::Sprite(Image *texture): texture(texture) {
-	glCreateVertexArrays(1, &this->VAO_ID);
+	glGenVertexArrays(1, &this->VAO_ID);
 	glBindVertexArray(this->VAO_ID);
 
 	this->height = texture->getImage_height();
 	this->width = texture->getImage_width();
+    this->baseHeight = this->height;
+    this->baseWidth = this->width;
 	this->rotation = 0;
+
+    collider = Collider(COLLIDER_RECTANGLE, 0, 0, width, height);
 
 	this->img_h = texture->getImage_height();
 	this->img_w = texture->getImage_height();
@@ -125,11 +132,15 @@ Sprite::Sprite(Image *texture): texture(texture) {
 }
 
 Sprite::Sprite(Image *texture, int img_x, int img_y, int img_w, int img_h) : texture(texture) {
-	glCreateVertexArrays(1, &this->VAO_ID);
+	glGenVertexArrays(1, &this->VAO_ID);
 	glBindVertexArray(this->VAO_ID);
 
 	this->height = img_h;
 	this->width = img_w;
+    this->baseHeight = this->height;
+    this->baseWidth = this->width;
+
+    collider = Collider(COLLIDER_RECTANGLE, 0, 0, width, height);
 
 	this->img_h = img_h;
 	this->img_w = img_w;
@@ -225,14 +236,6 @@ Image *Sprite::getTexture() const {
 	return texture;
 }
 
-void Sprite::setHeight(GLuint height) {
-	Sprite::height = height;
-}
-
-void Sprite::setWidth(GLuint width) {
-	Sprite::width = width;
-}
-
 void Sprite::setPosition(const glm::vec2 &position) {
 	Sprite::position = position;
 }
@@ -247,11 +250,6 @@ const float &Sprite::getPositionX() const {
 
 const float &Sprite::getPositionY() const {
 	return this->position.y;
-}
-
-void Sprite::setSize(GLuint width, GLuint height) {
-	this->setHeight(height);
-	this->setWidth(width);
 }
 
 void Sprite::setPosition(GLfloat x, GLfloat y) {
@@ -343,6 +341,9 @@ void Sprite::setOrigin(OriginEnum origin) {
 
 void Sprite::setScale(GLfloat scFac) {
 	this->scale = glm::vec3(scFac, scFac, scFac);
+    this->height = baseHeight * scFac;
+    this->width = baseWidth * scFac;
+    this->collider.setColliderSize(width, height);
 }
 
 void Sprite::flipHorizontally() {
@@ -388,6 +389,10 @@ Sprite Sprite::operator=(const Sprite &sprite) {
 
 	this->height = sprite.img_h;
 	this->width = sprite.img_w;
+    this->baseHeight = this->height;
+    this->baseWidth = this->width;
+
+    this->collider = Collider(COLLIDER_RECTANGLE, 0, 0, width, height);
 
 	this->img_h = sprite.img_h;
 	this->img_w = sprite.img_w;
@@ -419,6 +424,14 @@ Sprite Sprite::operator=(const Sprite &sprite) {
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
 	return *this;
+}
+
+void Sprite::setCollider(ColliderType type, GLfloat x, GLfloat y, GLuint size1, GLuint size2) {
+    collider = Collider(type, x, y, size1, size2);
+}
+
+bool Sprite::simpleCollide(Sprite &target) {
+    return this->collider.collisionSimple(position.x, position.y, target.collider, target.position.x, target.position.y);
 }
 
 

@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/sonyahon/.clion-2016.3.2/bin/cmake/bin/cmake
+CMAKE_COMMAND = /home/sonyahon/.clion/bin/cmake/bin/cmake
 
 # The command to remove a file.
-RM = /home/sonyahon/.clion-2016.3.2/bin/cmake/bin/cmake -E remove -f
+RM = /home/sonyahon/.clion/bin/cmake/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/sonyahon/workspace/cpp/2ds
+CMAKE_SOURCE_DIR = /home/sonyahon/workspace/cpp/opengl2d
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/sonyahon/workspace/cpp/2ds/cmake-build-debug
+CMAKE_BINARY_DIR = /home/sonyahon/workspace/cpp/opengl2d/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/2ds.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/2ds.dir/flags.make
 
 CMakeFiles/2ds.dir/main.cpp.o: CMakeFiles/2ds.dir/flags.make
 CMakeFiles/2ds.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sonyahon/workspace/cpp/2ds/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/2ds.dir/main.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/2ds.dir/main.cpp.o -c /home/sonyahon/workspace/cpp/2ds/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sonyahon/workspace/cpp/opengl2d/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/2ds.dir/main.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/2ds.dir/main.cpp.o -c /home/sonyahon/workspace/cpp/opengl2d/main.cpp
 
 CMakeFiles/2ds.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/2ds.dir/main.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sonyahon/workspace/cpp/2ds/main.cpp > CMakeFiles/2ds.dir/main.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sonyahon/workspace/cpp/opengl2d/main.cpp > CMakeFiles/2ds.dir/main.cpp.i
 
 CMakeFiles/2ds.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/2ds.dir/main.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sonyahon/workspace/cpp/2ds/main.cpp -o CMakeFiles/2ds.dir/main.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sonyahon/workspace/cpp/opengl2d/main.cpp -o CMakeFiles/2ds.dir/main.cpp.s
 
 CMakeFiles/2ds.dir/main.cpp.o.requires:
 
@@ -83,16 +83,16 @@ CMakeFiles/2ds.dir/main.cpp.o.provides.build: CMakeFiles/2ds.dir/main.cpp.o
 
 CMakeFiles/2ds.dir/Utils/Display.cpp.o: CMakeFiles/2ds.dir/flags.make
 CMakeFiles/2ds.dir/Utils/Display.cpp.o: ../Utils/Display.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sonyahon/workspace/cpp/2ds/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/2ds.dir/Utils/Display.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/2ds.dir/Utils/Display.cpp.o -c /home/sonyahon/workspace/cpp/2ds/Utils/Display.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sonyahon/workspace/cpp/opengl2d/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/2ds.dir/Utils/Display.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/2ds.dir/Utils/Display.cpp.o -c /home/sonyahon/workspace/cpp/opengl2d/Utils/Display.cpp
 
 CMakeFiles/2ds.dir/Utils/Display.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/2ds.dir/Utils/Display.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sonyahon/workspace/cpp/2ds/Utils/Display.cpp > CMakeFiles/2ds.dir/Utils/Display.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sonyahon/workspace/cpp/opengl2d/Utils/Display.cpp > CMakeFiles/2ds.dir/Utils/Display.cpp.i
 
 CMakeFiles/2ds.dir/Utils/Display.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/2ds.dir/Utils/Display.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sonyahon/workspace/cpp/2ds/Utils/Display.cpp -o CMakeFiles/2ds.dir/Utils/Display.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sonyahon/workspace/cpp/opengl2d/Utils/Display.cpp -o CMakeFiles/2ds.dir/Utils/Display.cpp.s
 
 CMakeFiles/2ds.dir/Utils/Display.cpp.o.requires:
 
@@ -107,16 +107,16 @@ CMakeFiles/2ds.dir/Utils/Display.cpp.o.provides.build: CMakeFiles/2ds.dir/Utils/
 
 CMakeFiles/2ds.dir/Utils/Renderer.cpp.o: CMakeFiles/2ds.dir/flags.make
 CMakeFiles/2ds.dir/Utils/Renderer.cpp.o: ../Utils/Renderer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sonyahon/workspace/cpp/2ds/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/2ds.dir/Utils/Renderer.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/2ds.dir/Utils/Renderer.cpp.o -c /home/sonyahon/workspace/cpp/2ds/Utils/Renderer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sonyahon/workspace/cpp/opengl2d/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/2ds.dir/Utils/Renderer.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/2ds.dir/Utils/Renderer.cpp.o -c /home/sonyahon/workspace/cpp/opengl2d/Utils/Renderer.cpp
 
 CMakeFiles/2ds.dir/Utils/Renderer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/2ds.dir/Utils/Renderer.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sonyahon/workspace/cpp/2ds/Utils/Renderer.cpp > CMakeFiles/2ds.dir/Utils/Renderer.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sonyahon/workspace/cpp/opengl2d/Utils/Renderer.cpp > CMakeFiles/2ds.dir/Utils/Renderer.cpp.i
 
 CMakeFiles/2ds.dir/Utils/Renderer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/2ds.dir/Utils/Renderer.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sonyahon/workspace/cpp/2ds/Utils/Renderer.cpp -o CMakeFiles/2ds.dir/Utils/Renderer.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sonyahon/workspace/cpp/opengl2d/Utils/Renderer.cpp -o CMakeFiles/2ds.dir/Utils/Renderer.cpp.s
 
 CMakeFiles/2ds.dir/Utils/Renderer.cpp.o.requires:
 
@@ -131,16 +131,16 @@ CMakeFiles/2ds.dir/Utils/Renderer.cpp.o.provides.build: CMakeFiles/2ds.dir/Utils
 
 CMakeFiles/2ds.dir/Sprites/Sprite.cpp.o: CMakeFiles/2ds.dir/flags.make
 CMakeFiles/2ds.dir/Sprites/Sprite.cpp.o: ../Sprites/Sprite.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sonyahon/workspace/cpp/2ds/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/2ds.dir/Sprites/Sprite.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/2ds.dir/Sprites/Sprite.cpp.o -c /home/sonyahon/workspace/cpp/2ds/Sprites/Sprite.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sonyahon/workspace/cpp/opengl2d/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/2ds.dir/Sprites/Sprite.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/2ds.dir/Sprites/Sprite.cpp.o -c /home/sonyahon/workspace/cpp/opengl2d/Sprites/Sprite.cpp
 
 CMakeFiles/2ds.dir/Sprites/Sprite.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/2ds.dir/Sprites/Sprite.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sonyahon/workspace/cpp/2ds/Sprites/Sprite.cpp > CMakeFiles/2ds.dir/Sprites/Sprite.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sonyahon/workspace/cpp/opengl2d/Sprites/Sprite.cpp > CMakeFiles/2ds.dir/Sprites/Sprite.cpp.i
 
 CMakeFiles/2ds.dir/Sprites/Sprite.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/2ds.dir/Sprites/Sprite.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sonyahon/workspace/cpp/2ds/Sprites/Sprite.cpp -o CMakeFiles/2ds.dir/Sprites/Sprite.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sonyahon/workspace/cpp/opengl2d/Sprites/Sprite.cpp -o CMakeFiles/2ds.dir/Sprites/Sprite.cpp.s
 
 CMakeFiles/2ds.dir/Sprites/Sprite.cpp.o.requires:
 
@@ -155,16 +155,16 @@ CMakeFiles/2ds.dir/Sprites/Sprite.cpp.o.provides.build: CMakeFiles/2ds.dir/Sprit
 
 CMakeFiles/2ds.dir/Sprites/Image.cpp.o: CMakeFiles/2ds.dir/flags.make
 CMakeFiles/2ds.dir/Sprites/Image.cpp.o: ../Sprites/Image.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sonyahon/workspace/cpp/2ds/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/2ds.dir/Sprites/Image.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/2ds.dir/Sprites/Image.cpp.o -c /home/sonyahon/workspace/cpp/2ds/Sprites/Image.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sonyahon/workspace/cpp/opengl2d/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/2ds.dir/Sprites/Image.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/2ds.dir/Sprites/Image.cpp.o -c /home/sonyahon/workspace/cpp/opengl2d/Sprites/Image.cpp
 
 CMakeFiles/2ds.dir/Sprites/Image.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/2ds.dir/Sprites/Image.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sonyahon/workspace/cpp/2ds/Sprites/Image.cpp > CMakeFiles/2ds.dir/Sprites/Image.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sonyahon/workspace/cpp/opengl2d/Sprites/Image.cpp > CMakeFiles/2ds.dir/Sprites/Image.cpp.i
 
 CMakeFiles/2ds.dir/Sprites/Image.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/2ds.dir/Sprites/Image.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sonyahon/workspace/cpp/2ds/Sprites/Image.cpp -o CMakeFiles/2ds.dir/Sprites/Image.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sonyahon/workspace/cpp/opengl2d/Sprites/Image.cpp -o CMakeFiles/2ds.dir/Sprites/Image.cpp.s
 
 CMakeFiles/2ds.dir/Sprites/Image.cpp.o.requires:
 
@@ -179,16 +179,16 @@ CMakeFiles/2ds.dir/Sprites/Image.cpp.o.provides.build: CMakeFiles/2ds.dir/Sprite
 
 CMakeFiles/2ds.dir/Shaders/ShaderProgram.cpp.o: CMakeFiles/2ds.dir/flags.make
 CMakeFiles/2ds.dir/Shaders/ShaderProgram.cpp.o: ../Shaders/ShaderProgram.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sonyahon/workspace/cpp/2ds/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/2ds.dir/Shaders/ShaderProgram.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/2ds.dir/Shaders/ShaderProgram.cpp.o -c /home/sonyahon/workspace/cpp/2ds/Shaders/ShaderProgram.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sonyahon/workspace/cpp/opengl2d/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/2ds.dir/Shaders/ShaderProgram.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/2ds.dir/Shaders/ShaderProgram.cpp.o -c /home/sonyahon/workspace/cpp/opengl2d/Shaders/ShaderProgram.cpp
 
 CMakeFiles/2ds.dir/Shaders/ShaderProgram.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/2ds.dir/Shaders/ShaderProgram.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sonyahon/workspace/cpp/2ds/Shaders/ShaderProgram.cpp > CMakeFiles/2ds.dir/Shaders/ShaderProgram.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sonyahon/workspace/cpp/opengl2d/Shaders/ShaderProgram.cpp > CMakeFiles/2ds.dir/Shaders/ShaderProgram.cpp.i
 
 CMakeFiles/2ds.dir/Shaders/ShaderProgram.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/2ds.dir/Shaders/ShaderProgram.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sonyahon/workspace/cpp/2ds/Shaders/ShaderProgram.cpp -o CMakeFiles/2ds.dir/Shaders/ShaderProgram.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sonyahon/workspace/cpp/opengl2d/Shaders/ShaderProgram.cpp -o CMakeFiles/2ds.dir/Shaders/ShaderProgram.cpp.s
 
 CMakeFiles/2ds.dir/Shaders/ShaderProgram.cpp.o.requires:
 
@@ -203,16 +203,16 @@ CMakeFiles/2ds.dir/Shaders/ShaderProgram.cpp.o.provides.build: CMakeFiles/2ds.di
 
 CMakeFiles/2ds.dir/Utils/Camera.cpp.o: CMakeFiles/2ds.dir/flags.make
 CMakeFiles/2ds.dir/Utils/Camera.cpp.o: ../Utils/Camera.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sonyahon/workspace/cpp/2ds/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/2ds.dir/Utils/Camera.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/2ds.dir/Utils/Camera.cpp.o -c /home/sonyahon/workspace/cpp/2ds/Utils/Camera.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sonyahon/workspace/cpp/opengl2d/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/2ds.dir/Utils/Camera.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/2ds.dir/Utils/Camera.cpp.o -c /home/sonyahon/workspace/cpp/opengl2d/Utils/Camera.cpp
 
 CMakeFiles/2ds.dir/Utils/Camera.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/2ds.dir/Utils/Camera.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sonyahon/workspace/cpp/2ds/Utils/Camera.cpp > CMakeFiles/2ds.dir/Utils/Camera.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sonyahon/workspace/cpp/opengl2d/Utils/Camera.cpp > CMakeFiles/2ds.dir/Utils/Camera.cpp.i
 
 CMakeFiles/2ds.dir/Utils/Camera.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/2ds.dir/Utils/Camera.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sonyahon/workspace/cpp/2ds/Utils/Camera.cpp -o CMakeFiles/2ds.dir/Utils/Camera.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sonyahon/workspace/cpp/opengl2d/Utils/Camera.cpp -o CMakeFiles/2ds.dir/Utils/Camera.cpp.s
 
 CMakeFiles/2ds.dir/Utils/Camera.cpp.o.requires:
 
@@ -227,16 +227,16 @@ CMakeFiles/2ds.dir/Utils/Camera.cpp.o.provides.build: CMakeFiles/2ds.dir/Utils/C
 
 CMakeFiles/2ds.dir/Utils/Timer.cpp.o: CMakeFiles/2ds.dir/flags.make
 CMakeFiles/2ds.dir/Utils/Timer.cpp.o: ../Utils/Timer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sonyahon/workspace/cpp/2ds/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/2ds.dir/Utils/Timer.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/2ds.dir/Utils/Timer.cpp.o -c /home/sonyahon/workspace/cpp/2ds/Utils/Timer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sonyahon/workspace/cpp/opengl2d/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/2ds.dir/Utils/Timer.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/2ds.dir/Utils/Timer.cpp.o -c /home/sonyahon/workspace/cpp/opengl2d/Utils/Timer.cpp
 
 CMakeFiles/2ds.dir/Utils/Timer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/2ds.dir/Utils/Timer.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sonyahon/workspace/cpp/2ds/Utils/Timer.cpp > CMakeFiles/2ds.dir/Utils/Timer.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sonyahon/workspace/cpp/opengl2d/Utils/Timer.cpp > CMakeFiles/2ds.dir/Utils/Timer.cpp.i
 
 CMakeFiles/2ds.dir/Utils/Timer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/2ds.dir/Utils/Timer.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sonyahon/workspace/cpp/2ds/Utils/Timer.cpp -o CMakeFiles/2ds.dir/Utils/Timer.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sonyahon/workspace/cpp/opengl2d/Utils/Timer.cpp -o CMakeFiles/2ds.dir/Utils/Timer.cpp.s
 
 CMakeFiles/2ds.dir/Utils/Timer.cpp.o.requires:
 
@@ -249,6 +249,54 @@ CMakeFiles/2ds.dir/Utils/Timer.cpp.o.provides: CMakeFiles/2ds.dir/Utils/Timer.cp
 CMakeFiles/2ds.dir/Utils/Timer.cpp.o.provides.build: CMakeFiles/2ds.dir/Utils/Timer.cpp.o
 
 
+CMakeFiles/2ds.dir/Collisions/Collider.cpp.o: CMakeFiles/2ds.dir/flags.make
+CMakeFiles/2ds.dir/Collisions/Collider.cpp.o: ../Collisions/Collider.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sonyahon/workspace/cpp/opengl2d/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/2ds.dir/Collisions/Collider.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/2ds.dir/Collisions/Collider.cpp.o -c /home/sonyahon/workspace/cpp/opengl2d/Collisions/Collider.cpp
+
+CMakeFiles/2ds.dir/Collisions/Collider.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/2ds.dir/Collisions/Collider.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sonyahon/workspace/cpp/opengl2d/Collisions/Collider.cpp > CMakeFiles/2ds.dir/Collisions/Collider.cpp.i
+
+CMakeFiles/2ds.dir/Collisions/Collider.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/2ds.dir/Collisions/Collider.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sonyahon/workspace/cpp/opengl2d/Collisions/Collider.cpp -o CMakeFiles/2ds.dir/Collisions/Collider.cpp.s
+
+CMakeFiles/2ds.dir/Collisions/Collider.cpp.o.requires:
+
+.PHONY : CMakeFiles/2ds.dir/Collisions/Collider.cpp.o.requires
+
+CMakeFiles/2ds.dir/Collisions/Collider.cpp.o.provides: CMakeFiles/2ds.dir/Collisions/Collider.cpp.o.requires
+	$(MAKE) -f CMakeFiles/2ds.dir/build.make CMakeFiles/2ds.dir/Collisions/Collider.cpp.o.provides.build
+.PHONY : CMakeFiles/2ds.dir/Collisions/Collider.cpp.o.provides
+
+CMakeFiles/2ds.dir/Collisions/Collider.cpp.o.provides.build: CMakeFiles/2ds.dir/Collisions/Collider.cpp.o
+
+
+CMakeFiles/2ds.dir/Utils/FBO.cpp.o: CMakeFiles/2ds.dir/flags.make
+CMakeFiles/2ds.dir/Utils/FBO.cpp.o: ../Utils/FBO.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sonyahon/workspace/cpp/opengl2d/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/2ds.dir/Utils/FBO.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/2ds.dir/Utils/FBO.cpp.o -c /home/sonyahon/workspace/cpp/opengl2d/Utils/FBO.cpp
+
+CMakeFiles/2ds.dir/Utils/FBO.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/2ds.dir/Utils/FBO.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sonyahon/workspace/cpp/opengl2d/Utils/FBO.cpp > CMakeFiles/2ds.dir/Utils/FBO.cpp.i
+
+CMakeFiles/2ds.dir/Utils/FBO.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/2ds.dir/Utils/FBO.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sonyahon/workspace/cpp/opengl2d/Utils/FBO.cpp -o CMakeFiles/2ds.dir/Utils/FBO.cpp.s
+
+CMakeFiles/2ds.dir/Utils/FBO.cpp.o.requires:
+
+.PHONY : CMakeFiles/2ds.dir/Utils/FBO.cpp.o.requires
+
+CMakeFiles/2ds.dir/Utils/FBO.cpp.o.provides: CMakeFiles/2ds.dir/Utils/FBO.cpp.o.requires
+	$(MAKE) -f CMakeFiles/2ds.dir/build.make CMakeFiles/2ds.dir/Utils/FBO.cpp.o.provides.build
+.PHONY : CMakeFiles/2ds.dir/Utils/FBO.cpp.o.provides
+
+CMakeFiles/2ds.dir/Utils/FBO.cpp.o.provides.build: CMakeFiles/2ds.dir/Utils/FBO.cpp.o
+
+
 # Object files for target 2ds
 2ds_OBJECTS = \
 "CMakeFiles/2ds.dir/main.cpp.o" \
@@ -258,7 +306,9 @@ CMakeFiles/2ds.dir/Utils/Timer.cpp.o.provides.build: CMakeFiles/2ds.dir/Utils/Ti
 "CMakeFiles/2ds.dir/Sprites/Image.cpp.o" \
 "CMakeFiles/2ds.dir/Shaders/ShaderProgram.cpp.o" \
 "CMakeFiles/2ds.dir/Utils/Camera.cpp.o" \
-"CMakeFiles/2ds.dir/Utils/Timer.cpp.o"
+"CMakeFiles/2ds.dir/Utils/Timer.cpp.o" \
+"CMakeFiles/2ds.dir/Collisions/Collider.cpp.o" \
+"CMakeFiles/2ds.dir/Utils/FBO.cpp.o"
 
 # External object files for target 2ds
 2ds_EXTERNAL_OBJECTS =
@@ -271,19 +321,14 @@ CMakeFiles/2ds.dir/Utils/Timer.cpp.o.provides.build: CMakeFiles/2ds.dir/Utils/Ti
 2ds: CMakeFiles/2ds.dir/Shaders/ShaderProgram.cpp.o
 2ds: CMakeFiles/2ds.dir/Utils/Camera.cpp.o
 2ds: CMakeFiles/2ds.dir/Utils/Timer.cpp.o
+2ds: CMakeFiles/2ds.dir/Collisions/Collider.cpp.o
+2ds: CMakeFiles/2ds.dir/Utils/FBO.cpp.o
 2ds: CMakeFiles/2ds.dir/build.make
 2ds: /usr/lib/x86_64-linux-gnu/libGLU.so
 2ds: /usr/lib/x86_64-linux-gnu/libGL.so
-2ds: /usr/lib/x86_64-linux-gnu/libglfw3.a
-2ds: /usr/lib/x86_64-linux-gnu/librt.so
-2ds: /usr/lib/x86_64-linux-gnu/libm.so
-2ds: /usr/lib/x86_64-linux-gnu/libX11.so
-2ds: /usr/lib/x86_64-linux-gnu/libXrandr.so
-2ds: /usr/lib/x86_64-linux-gnu/libXinerama.so
-2ds: /usr/lib/x86_64-linux-gnu/libXxf86vm.so
-2ds: /usr/lib/x86_64-linux-gnu/libXcursor.so
+2ds: /usr/lib/x86_64-linux-gnu/libglfw.so.3.2
 2ds: CMakeFiles/2ds.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sonyahon/workspace/cpp/2ds/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable 2ds"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sonyahon/workspace/cpp/opengl2d/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable 2ds"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/2ds.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -299,6 +344,8 @@ CMakeFiles/2ds.dir/requires: CMakeFiles/2ds.dir/Sprites/Image.cpp.o.requires
 CMakeFiles/2ds.dir/requires: CMakeFiles/2ds.dir/Shaders/ShaderProgram.cpp.o.requires
 CMakeFiles/2ds.dir/requires: CMakeFiles/2ds.dir/Utils/Camera.cpp.o.requires
 CMakeFiles/2ds.dir/requires: CMakeFiles/2ds.dir/Utils/Timer.cpp.o.requires
+CMakeFiles/2ds.dir/requires: CMakeFiles/2ds.dir/Collisions/Collider.cpp.o.requires
+CMakeFiles/2ds.dir/requires: CMakeFiles/2ds.dir/Utils/FBO.cpp.o.requires
 
 .PHONY : CMakeFiles/2ds.dir/requires
 
@@ -307,6 +354,6 @@ CMakeFiles/2ds.dir/clean:
 .PHONY : CMakeFiles/2ds.dir/clean
 
 CMakeFiles/2ds.dir/depend:
-	cd /home/sonyahon/workspace/cpp/2ds/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sonyahon/workspace/cpp/2ds /home/sonyahon/workspace/cpp/2ds /home/sonyahon/workspace/cpp/2ds/cmake-build-debug /home/sonyahon/workspace/cpp/2ds/cmake-build-debug /home/sonyahon/workspace/cpp/2ds/cmake-build-debug/CMakeFiles/2ds.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/sonyahon/workspace/cpp/opengl2d/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sonyahon/workspace/cpp/opengl2d /home/sonyahon/workspace/cpp/opengl2d /home/sonyahon/workspace/cpp/opengl2d/cmake-build-debug /home/sonyahon/workspace/cpp/opengl2d/cmake-build-debug /home/sonyahon/workspace/cpp/opengl2d/cmake-build-debug/CMakeFiles/2ds.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/2ds.dir/depend
 

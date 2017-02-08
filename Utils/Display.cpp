@@ -107,5 +107,5 @@ void Display::setCursorMode(CursorStateEnum mode) {
 }
 
 double Display::ellapsedTime() {
-	return glfwGetTime();;
+	return glfwGetTime();
 }

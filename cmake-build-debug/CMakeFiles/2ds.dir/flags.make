@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_FLAGS = -std=c++11 -g  
 
-CXX_DEFINES = 
+CXX_DEFINES = -DGLFW_DLL
 
 CXX_INCLUDES = -I/usr/local/include/freetype2 -I/usr/local/include 
 

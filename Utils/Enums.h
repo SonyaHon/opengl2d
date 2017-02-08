@@ -22,6 +22,11 @@ enum CursorStateEnum {
 	MODE_HIDDEN = GLFW_CURSOR_HIDDEN
 };
 
+enum ColliderType {
+	COLLIDER_RECTANGLE,
+	COLLIDER_CIRCLE
+};
+
 enum TimeEnum {
 	TIME_SECS,
 	TIME_M_SECS

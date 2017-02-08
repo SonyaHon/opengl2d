@@ -39,19 +39,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/sonyahon/.clion-2016.3.2/bin/cmake/bin/cmake
+CMAKE_COMMAND = /home/sonyahon/.clion/bin/cmake/bin/cmake
 
 # The command to remove a file.
-RM = /home/sonyahon/.clion-2016.3.2/bin/cmake/bin/cmake -E remove -f
+RM = /home/sonyahon/.clion/bin/cmake/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/sonyahon/workspace/cpp/2ds
+CMAKE_SOURCE_DIR = /home/sonyahon/workspace/cpp/opengl2d
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/sonyahon/workspace/cpp/2ds/cmake-build-debug
+CMAKE_BINARY_DIR = /home/sonyahon/workspace/cpp/opengl2d/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/sonyahon/workspace/cpp/2ds/cmake-build-debug
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/home/sonyahon/.clion-2016.3.2/bin/cmake/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/home/sonyahon/.clion/bin/cmake/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -70,7 +70,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/home/sonyahon/.clion-2016.3.2/bin/cmake/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/home/sonyahon/.clion/bin/cmake/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -80,9 +80,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sonyahon/workspace/cpp/2ds/cmake-build-debug/CMakeFiles /home/sonyahon/workspace/cpp/2ds/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sonyahon/workspace/cpp/opengl2d/cmake-build-debug/CMakeFiles /home/sonyahon/workspace/cpp/opengl2d/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sonyahon/workspace/cpp/2ds/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sonyahon/workspace/cpp/opengl2d/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -122,6 +122,33 @@ depend:
 2ds/fast:
 	$(MAKE) -f CMakeFiles/2ds.dir/build.make CMakeFiles/2ds.dir/build
 .PHONY : 2ds/fast
+
+Collisions/Collider.o: Collisions/Collider.cpp.o
+
+.PHONY : Collisions/Collider.o
+
+# target to build an object file
+Collisions/Collider.cpp.o:
+	$(MAKE) -f CMakeFiles/2ds.dir/build.make CMakeFiles/2ds.dir/Collisions/Collider.cpp.o
+.PHONY : Collisions/Collider.cpp.o
+
+Collisions/Collider.i: Collisions/Collider.cpp.i
+
+.PHONY : Collisions/Collider.i
+
+# target to preprocess a source file
+Collisions/Collider.cpp.i:
+	$(MAKE) -f CMakeFiles/2ds.dir/build.make CMakeFiles/2ds.dir/Collisions/Collider.cpp.i
+.PHONY : Collisions/Collider.cpp.i
+
+Collisions/Collider.s: Collisions/Collider.cpp.s
+
+.PHONY : Collisions/Collider.s
+
+# target to generate assembly for a file
+Collisions/Collider.cpp.s:
+	$(MAKE) -f CMakeFiles/2ds.dir/build.make CMakeFiles/2ds.dir/Collisions/Collider.cpp.s
+.PHONY : Collisions/Collider.cpp.s
 
 Shaders/ShaderProgram.o: Shaders/ShaderProgram.cpp.o
 
@@ -258,6 +285,33 @@ Utils/Display.cpp.s:
 	$(MAKE) -f CMakeFiles/2ds.dir/build.make CMakeFiles/2ds.dir/Utils/Display.cpp.s
 .PHONY : Utils/Display.cpp.s
 
+Utils/FBO.o: Utils/FBO.cpp.o
+
+.PHONY : Utils/FBO.o
+
+# target to build an object file
+Utils/FBO.cpp.o:
+	$(MAKE) -f CMakeFiles/2ds.dir/build.make CMakeFiles/2ds.dir/Utils/FBO.cpp.o
+.PHONY : Utils/FBO.cpp.o
+
+Utils/FBO.i: Utils/FBO.cpp.i
+
+.PHONY : Utils/FBO.i
+
+# target to preprocess a source file
+Utils/FBO.cpp.i:
+	$(MAKE) -f CMakeFiles/2ds.dir/build.make CMakeFiles/2ds.dir/Utils/FBO.cpp.i
+.PHONY : Utils/FBO.cpp.i
+
+Utils/FBO.s: Utils/FBO.cpp.s
+
+.PHONY : Utils/FBO.s
+
+# target to generate assembly for a file
+Utils/FBO.cpp.s:
+	$(MAKE) -f CMakeFiles/2ds.dir/build.make CMakeFiles/2ds.dir/Utils/FBO.cpp.s
+.PHONY : Utils/FBO.cpp.s
+
 Utils/Renderer.o: Utils/Renderer.cpp.o
 
 .PHONY : Utils/Renderer.o
@@ -348,6 +402,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... 2ds"
+	@echo "... Collisions/Collider.o"
+	@echo "... Collisions/Collider.i"
+	@echo "... Collisions/Collider.s"
 	@echo "... Shaders/ShaderProgram.o"
 	@echo "... Shaders/ShaderProgram.i"
 	@echo "... Shaders/ShaderProgram.s"
@@ -363,6 +420,9 @@ help:
 	@echo "... Utils/Display.o"
 	@echo "... Utils/Display.i"
 	@echo "... Utils/Display.s"
+	@echo "... Utils/FBO.o"
+	@echo "... Utils/FBO.i"
+	@echo "... Utils/FBO.s"
 	@echo "... Utils/Renderer.o"
 	@echo "... Utils/Renderer.i"
 	@echo "... Utils/Renderer.s"
