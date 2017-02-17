@@ -24,11 +24,18 @@ Renderer::Renderer(Display& display, Camera& cam) :
 						   "/home/sonyahon/workspace/cpp/opengl2d/Shaders/GLSL/postProccessing/contrast_fragment.glsl"),
 		flatColorProgram("/home/sonyahon/workspace/cpp/opengl2d/Shaders/GLSL/flatVertex.glsl",
 						 "/home/sonyahon/workspace/cpp/opengl2d/Shaders/GLSL/flatFragment.glsl"),
+		circleColorProgram("/home/sonyahon/workspace/cpp/opengl2d/Shaders/GLSL/flatVertex.glsl",
+						   "/home/sonyahon/workspace/cpp/opengl2d/Shaders/GLSL/circleFlatFragment.glsl"),
+		blurProgramHorizontal("/home/sonyahon/workspace/cpp/opengl2d/Shaders/GLSL/postProccessing/blurVertexHorizontal.glsl",
+					"/home/sonyahon/workspace/cpp/opengl2d/Shaders/GLSL/postProccessing/blurFragmentHorizontal.glsl"),
+		blurProgramVertical("/home/sonyahon/workspace/cpp/opengl2d/Shaders/GLSL/postProccessing/blurVertexVertical.glsl",
+							"/home/sonyahon/workspace/cpp/opengl2d/Shaders/GLSL/postProccessing/blurFragmentVertical.glsl"),
 
-		//FBO`s
-		first(display.getMainWindowWidth(), display.getMainWindowHeight()),
-		second(display.getMainWindowWidth(), display.getMainWindowHeight())
+		display(display),
+		zeroLayer(display.getMainWindowWidth(), display.getMainWindowHeight())
+
 {
+	this->max_layer = 1;
 	this->R = 0.0f;
 	this->B = 0.0f;
 	this->G = 0.0f;
@@ -38,10 +45,8 @@ Renderer::Renderer(Display& display, Camera& cam) :
 	this->hasBgImage = false;
 	this->bg = nullptr;
 
-	this->isUsingFirts = true;
-
 	if(FT_Init_FreeType(&ft)) {
-		std::cout << "ASD" << std::endl;
+		std::cout << "FreeType failed to init." << std::endl;
 	}
 
 	glEnable(GL_BLEND);
@@ -82,16 +87,22 @@ Renderer::Renderer(Display& display, Camera& cam) :
 	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, (void *)0);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
-}
 
+	fbos["background"] = std::pair<FBO, int>(zeroLayer, 0);
+
+	currentFBO = "background";
+}
 Renderer::~Renderer() {
 	FT_Done_Face(font_face);
 	FT_Done_FreeType(ft);
+	for (auto tree_iterator = fbos.begin(); tree_iterator != fbos.end(); ++tree_iterator) {
+		tree_iterator->second.first.cleanUp();
+	}
 }
-
 void Renderer::prepare() {
+	currentFBO = "background";
 	glBindTexture(GL_TEXTURE_2D, 0);
-	glBindFramebuffer(GL_FRAMEBUFFER, isUsingFirts?first.getFbo_id():second.getFbo_id());
+	glBindFramebuffer(GL_FRAMEBUFFER, fbos[currentFBO].first.getFbo_id());
 	glClearColor(R, G, B, 1.0f);
 	glClearDepth(1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
@@ -100,17 +111,23 @@ void Renderer::prepare() {
 		Sprite sprite = Sprite(this->bg);
 		render_simple(sprite);
 	}
-}
 
+	for (auto tree_iterator = fbos.begin() ; tree_iterator != fbos.end(); ++tree_iterator) {
+		if(tree_iterator->first == "background") continue;
+		glBindFramebuffer(GL_FRAMEBUFFER, fbos[tree_iterator->first].first.getFbo_id());
+		glClearColor(0, 0, 0, 0);
+		glClearDepth(1.0f);
+		glClear(GL_COLOR_BUFFER_BIT);
+	}
+}
 void Renderer::setClearColor(GLfloat r, GLfloat g, GLfloat b) {
 	this->R = r;
 	this->G = g;
 	this->B = b;
 }
-
 void Renderer::render_simple(Sprite &sprite) {
 	glBindTexture(GL_TEXTURE_2D, 0);
-	glBindFramebuffer(GL_FRAMEBUFFER, isUsingFirts?first.getFbo_id():second.getFbo_id());
+	glBindFramebuffer(GL_FRAMEBUFFER, fbos[currentFBO].first.getFbo_id());
 	simple_shader_program.start();
 	simple_shader_program.loadMatrix4(simple_shader_program.getUniformLocation("transformationMatrix"), sprite.genModelMatrix());
 	simple_shader_program.loadMatrix4(simple_shader_program.getUniformLocation("viewMatrix"), cam->getViewMatrix());
@@ -125,14 +142,11 @@ void Renderer::render_simple(Sprite &sprite) {
 	glDisableVertexAttribArray(1);
 	glBindVertexArray(0);
 	simple_shader_program.stop();
-
 }
-
 void Renderer::setBackgroundImage(Image *image) {
 	hasBgImage = true;
 	this->bg = image;
 }
-
 void Renderer::loadFont(std::string path, unsigned int font_height, GLuint font_id) {
 
 	FT_New_Face(ft, path.c_str(), 0, &this->font_face);
@@ -174,7 +188,6 @@ void Renderer::loadFont(std::string path, unsigned int font_height, GLuint font_
 		Characters[font_id].insert(std::pair<GLchar, Character>(c, character));
 	}
 }
-
 void Renderer::renderText(std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec4 color, GLuint font_id) {
 	textShader.start();
 	textShader.loadVector4(textShader.getUniformLocation("textColor"), color);
@@ -215,7 +228,6 @@ void Renderer::renderText(std::string text, GLfloat x, GLfloat y, GLfloat scale,
 	glBindTexture(GL_TEXTURE_2D, 0);
 	textShader.stop();
 }
-
 void Renderer::renderText(std::string text, GLfloat x, GLfloat y, GLfloat scale, GLfloat r, GLfloat g, GLfloat b,
 						  GLfloat a, GLuint font_id) {
 	glm::vec4 color = glm::vec4(r, g, b, a);
@@ -223,51 +235,59 @@ void Renderer::renderText(std::string text, GLfloat x, GLfloat y, GLfloat scale,
 
 
 }
-
 void Renderer::renderText(std::string text, GLfloat x, GLfloat y, GLfloat scale, GLuint font_id) {
 	glm::vec4 color = glm::vec4(1, 1, 1, 1);
 	renderText(text, x, y, scale, color, font_id);
 }
 
 void Renderer::update() {
-
 	glBindTexture(GL_TEXTURE_2D, 0);
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
+	glClearColor(0, 0, 0, 0);
+	glClearDepth(1.0f);
+	glClear(GL_COLOR_BUFFER_BIT);
 	finalFBORender.start();
 	glBindVertexArray(this->mainSquadVAO);
 	glEnableVertexAttribArray(0);
 	glEnableVertexAttribArray(1);
 	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, isUsingFirts?first.getTexture_id():second.getTexture_id());
-	glDrawArrays(GL_TRIANGLES, 0, 6);
+	int layer_num = 0;
+
+	while(layer_num < max_layer) {
+		for (auto tree_iterator = fbos.begin(); tree_iterator != fbos.end(); ++tree_iterator) {
+			if(layer_num == fbos[tree_iterator->first].second) {
+				glBindTexture(GL_TEXTURE_2D, fbos[tree_iterator->first].first.getTexture_id());
+				glDrawArrays(GL_TRIANGLES, 0, 6);
+				layer_num++;
+				break;
+			}
+		}
+	}
 	glDisableVertexAttribArray(0);
 	glDisableVertexAttribArray(1);
 	glBindVertexArray(0);
 	finalFBORender.stop();
-
 }
 
 void Renderer::setContrast(float value) {
-	isUsingFirts = !isUsingFirts;
 	glBindTexture(GL_TEXTURE_2D, 0);
-	glBindFramebuffer(GL_FRAMEBUFFER, isUsingFirts?first.getFbo_id():second.getFbo_id());
+	glBindFramebuffer(GL_FRAMEBUFFER, fbos[currentFBO].first.getFbo_id());
 	setContrastProgram.start();
 	setContrastProgram.loadFloat(setContrastProgram.getUniformLocation("contrast"), value);
 	glBindVertexArray(this->mainSquadVAO);
 	glEnableVertexAttribArray(0);
 	glEnableVertexAttribArray(1);
 	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, isUsingFirts?second.getTexture_id():first.getTexture_id());
+	glBindTexture(GL_TEXTURE_2D, fbos[currentFBO].first.getTexture_id());
 	glDrawArrays(GL_TRIANGLES, 0, 6);
 	glDisableVertexAttribArray(0);
 	glDisableVertexAttribArray(1);
 	glBindVertexArray(0);
 	setContrastProgram.stop();
 }
-
-
-
 void Renderer::drawRect(GLfloat x, GLfloat y, GLfloat width, GLfloat height, glm::vec4 color) {
+	glBindTexture(GL_TEXTURE_2D, 0);
+	glBindFramebuffer(GL_FRAMEBUFFER, fbos[currentFBO].first.getFbo_id());
 	const GLfloat vertex_buffer[] = {0, 0, 0,
 									 0, height, 0,
 									 width, 0, 0,
@@ -287,9 +307,9 @@ void Renderer::drawRect(GLfloat x, GLfloat y, GLfloat width, GLfloat height, glm
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	flatColorProgram.start();
 	flatColorProgram.loadVector4(flatColorProgram.getUniformLocation("color"), color);
-	flatColorProgram.loadMatrix4(simple_shader_program.getUniformLocation("transformationMatrix"), transformation_matrix);
-	flatColorProgram.loadMatrix4(simple_shader_program.getUniformLocation("viewMatrix"), cam->getViewMatrix());
-	flatColorProgram.loadMatrix4(simple_shader_program.getUniformLocation("projectionMatrix"), this->projection_matrix);
+	flatColorProgram.loadMatrix4(flatColorProgram.getUniformLocation("transformationMatrix"), transformation_matrix);
+	flatColorProgram.loadMatrix4(flatColorProgram.getUniformLocation("viewMatrix"), cam->getViewMatrix());
+	flatColorProgram.loadMatrix4(flatColorProgram.getUniformLocation("projectionMatrix"), this->projection_matrix);
 	glEnableVertexAttribArray(0);
 	glDrawArrays(GL_TRIANGLES, 0, 6);
 	glDisableVertexAttribArray(0);
@@ -297,26 +317,140 @@ void Renderer::drawRect(GLfloat x, GLfloat y, GLfloat width, GLfloat height, glm
 	flatColorProgram.stop();
 	glDeleteBuffers(1, &tempVBO);
 	glDeleteVertexArrays(1, &tempVAO);
-}
 
+}
 void
 Renderer::drawRect(GLfloat x, GLfloat y, GLfloat width, GLfloat height, GLfloat r, GLfloat g, GLfloat b, GLfloat a) {
 	glm::vec4 color = glm::vec4(r, g, b, a);
 	drawRect(x, y, width, height, color);
 }
-
 void Renderer::drawCircle(GLfloat x, GLfloat y, GLfloat radius, glm::vec4 color) {
-	//Triangle_fan or check for shader drawing
-}
+	glBindTexture(GL_TEXTURE_2D, 0);
+	glBindFramebuffer(GL_FRAMEBUFFER, fbos[currentFBO].first.getFbo_id());
+	const GLfloat vertex_buffer[] = {-radius, -radius, 0,
+									 -radius, radius, 0,
+									 radius, -radius, 0,
+									 radius, -radius, 0,
+									 -radius, radius, 0,
+									 radius, radius, 0};
+	glm::mat4 transformation_matrix = glm::mat4(1.0f);
+	transformation_matrix = glm::translate(transformation_matrix, glm::vec3(x, y, -1));
+	GLuint tempVAO;
+	GLuint tempVBO;
+	glGenVertexArrays(1, &tempVAO);
+	glBindVertexArray(tempVAO);
+	glGenBuffers(1, &tempVBO);
+	glBindBuffer(GL_ARRAY_BUFFER, tempVBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertex_buffer), vertex_buffer, GL_STATIC_DRAW);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	circleColorProgram.start();
+	circleColorProgram.loadVector4(circleColorProgram.getUniformLocation("color"), color);
+	circleColorProgram.loadMatrix4(circleColorProgram.getUniformLocation("transformationMatrix"), transformation_matrix);
+	circleColorProgram.loadMatrix4(circleColorProgram.getUniformLocation("viewMatrix"), cam->getViewMatrix());
+	circleColorProgram.loadMatrix4(circleColorProgram.getUniformLocation("projectionMatrix"), this->projection_matrix);
+	circleColorProgram.loadFloat(circleColorProgram.getUniformLocation("radius"), radius);
+	circleColorProgram.loadVector2(circleColorProgram.getUniformLocation("centerPos"), glm::vec2(x, y));
+	glEnableVertexAttribArray(0);
+	glDrawArrays(GL_TRIANGLES, 0, 6);
+	glDisableVertexAttribArray(0);
+	glBindVertexArray(0);
+	circleColorProgram.stop();
+	glDeleteBuffers(1, &tempVBO);
+	glDeleteVertexArrays(1, &tempVAO);
 
+}
 void Renderer::drawCirlce(GLfloat x, GLfloat y, GLfloat radius, GLfloat r, GLfloat g, GLfloat b, GLfloat a) {
 	glm::vec4 color = glm::vec4(r, g, b, a);
 	drawCircle(x, y, radius, color);
 }
+void Renderer::bindLayer(std::string layer_num) {
+	if(fbos.find(layer_num) == fbos.end()) {
+		std::cout << "There is no layer with name: " << layer_num << std::endl;
+		exit(1);
+	}
+	currentFBO = layer_num;
+}
+
+void Renderer::setBlur(float strength) {
+	this->setHorizontalBlur(strength);
+	this->setVerticalBlur(strength);
+}
+
+void Renderer::setHorizontalBlur(float strength) {
+	if(strength > 1) strength = 1;
+	GLfloat value = display.getMainWindowWidth() * strength;
+	glBindTexture(GL_TEXTURE_2D, 0);
+	glBindFramebuffer(GL_FRAMEBUFFER, fbos[currentFBO].first.getFbo_id());
+	blurProgramHorizontal.start();
+	blurProgramHorizontal.loadFloat(blurProgramHorizontal.getUniformLocation("TargetWidth"), value);
+	glBindVertexArray(this->mainSquadVAO);
+	glEnableVertexAttribArray(0);
+	glEnableVertexAttribArray(1);
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, fbos[currentFBO].first.getTexture_id());
+	glDrawArrays(GL_TRIANGLES, 0, 6);
+	glDisableVertexAttribArray(0);
+	glDisableVertexAttribArray(1);
+	glBindVertexArray(0);
+	blurProgramHorizontal.stop();
+}
+
+void Renderer::setVerticalBlur(float strength) {
+	if(strength > 1) strength = 1;
+	GLfloat value = display.getMainWindowHeight() * strength;
+	glBindTexture(GL_TEXTURE_2D, 0);
+	glBindFramebuffer(GL_FRAMEBUFFER, fbos[currentFBO].first.getFbo_id());
+	blurProgramHorizontal.start();
+	blurProgramHorizontal.loadFloat(blurProgramHorizontal.getUniformLocation("TargetHeight"), value);
+	glBindVertexArray(this->mainSquadVAO);
+	glEnableVertexAttribArray(0);
+	glEnableVertexAttribArray(1);
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, fbos[currentFBO].first.getTexture_id());
+	glDrawArrays(GL_TRIANGLES, 0, 6);
+	glDisableVertexAttribArray(0);
+	glDisableVertexAttribArray(1);
+	glBindVertexArray(0);
+	blurProgramHorizontal.stop();
+}
 
 
-//TODO Collision
-//TODO Optimize render proses
-//TODO DrawRect functions etc. Need to make some new shaders for it.
-//TODO Enums of keyboard`s buttons for glfw one`s
-//TODO More Post proccessing shit
+void Renderer::createLayer(std::string layer_name, int layer_num) {
+
+	bool isRebind = false;
+
+	for (auto tree_iterator = fbos.begin(); tree_iterator != fbos.end(); ++tree_iterator) {
+		if (fbos[tree_iterator->first].second == layer_num) {
+			isRebind = true;
+		}
+	}
+
+	if(max_layer - layer_num != 0) {
+		isRebind = true;
+	}
+
+	if(fbos.find(layer_name) != fbos.end()) {
+		bindLayer(layer_name);
+	}
+	else if(isRebind) {
+		std::cout << "This layer id is already used or it is too big. Layer name: " << layer_name << std::endl;
+		exit(1);
+	}
+	else {
+		fbos[layer_name] = std::pair<FBO, int>(FBO(display.getMainWindowWidth(), display.getMainWindowHeight()), layer_num);
+		bindLayer(layer_name);
+		max_layer++;
+	}
+}
+
+//TODO More Post proccessing shit.
+//TODO custom shaders, and shit.
+//TODO More prototype functions.
+//TODO layer key -> pair<string, int>
+
+/*	PostProccessing:
+ * 	Contrast
+ * 	Blur
+ * 	Brightness ->
+ */

@@ -112,3 +112,7 @@ void ShaderProgram::loadVector4(GLint location, glm::vec4 vector) {
 	glUniform4f(location, vector.x, vector.y, vector.z, vector.a);
 }
 
+void ShaderProgram::loadVector2(GLint location, glm::vec2 vector) {
+	glUniform2f(location, vector.x, vector.y);
+}
+

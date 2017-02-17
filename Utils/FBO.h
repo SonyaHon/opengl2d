@@ -13,8 +13,7 @@ private:
 
 public:
 	FBO(GLuint width, GLuint height);
-
-	virtual ~FBO();
+	FBO(){};
 
 	GLuint getFbo_id() const;
 
@@ -23,6 +22,8 @@ public:
 	GLuint getWidth() const;
 
 	GLuint getHeight() const;
+
+	void cleanUp();
 };
 
 

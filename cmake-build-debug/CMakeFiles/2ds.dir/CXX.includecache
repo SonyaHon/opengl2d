@@ -9,6 +9,8 @@
 /home/sonyahon/workspace/cpp/opengl2d/Collisions/Collider.cpp
 Collider.h
 /home/sonyahon/workspace/cpp/opengl2d/Collisions/Collider.h
+../Utils/Utils.h
+/home/sonyahon/workspace/cpp/opengl2d/Utils/Utils.h
 
 /home/sonyahon/workspace/cpp/opengl2d/Collisions/Collider.h
 GL/glew.h
@@ -139,6 +141,8 @@ Camera.h
 /home/sonyahon/workspace/cpp/opengl2d/Utils/Camera.h
 vector
 -
+map
+-
 ft2build.h
 -
 string.h
@@ -160,19 +164,21 @@ Enums.h
 
 /home/sonyahon/workspace/cpp/opengl2d/Utils/Utils.h
 
-/home/sonyahon/workspace/cpp/opengl2d/main.cpp
-iostream
--
+/home/sonyahon/workspace/cpp/opengl2d/engine.h
 Utils/Display.h
 /home/sonyahon/workspace/cpp/opengl2d/Utils/Display.h
-Utils/Camera.h
-/home/sonyahon/workspace/cpp/opengl2d/Utils/Camera.h
 Utils/Renderer.h
 /home/sonyahon/workspace/cpp/opengl2d/Utils/Renderer.h
-Utils/Timer.h
-/home/sonyahon/workspace/cpp/opengl2d/Utils/Timer.h
 Utils/Utils.h
 /home/sonyahon/workspace/cpp/opengl2d/Utils/Utils.h
+Utils/Timer.h
+/home/sonyahon/workspace/cpp/opengl2d/Utils/Timer.h
+Utils/Camera.h
+/home/sonyahon/workspace/cpp/opengl2d/Utils/Camera.h
+
+/home/sonyahon/workspace/cpp/opengl2d/main.cpp
+engine.h
+/home/sonyahon/workspace/cpp/opengl2d/engine.h
 
 /usr/local/include/freetype2/freetype/config/ftheader.h
 

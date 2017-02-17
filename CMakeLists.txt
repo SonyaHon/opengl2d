@@ -17,7 +17,7 @@ set(ALL_LIBS
         freetype
         )
 
-set(SOURCES main.cpp Utils/Display.cpp Utils/Display.h Utils/Renderer.cpp Utils/Renderer.h Sprites/Sprite.cpp Sprites/Sprite.h Sprites/Image.cpp Sprites/Image.h Shaders/ShaderProgram.cpp Shaders/ShaderProgram.h Utils/Camera.cpp Utils/Camera.h Utils/Enums.h Utils/Timer.cpp Utils/Timer.h Utils/Utils.h Collisions/Collider.cpp Collisions/Collider.h Utils/FBO.cpp Utils/FBO.h)
+set(SOURCES main.cpp Utils/Display.cpp Utils/Display.h Utils/Renderer.cpp Utils/Renderer.h Sprites/Sprite.cpp Sprites/Sprite.h Sprites/Image.cpp Sprites/Image.h Shaders/ShaderProgram.cpp Shaders/ShaderProgram.h Utils/Camera.cpp Utils/Camera.h Utils/Enums.h Utils/Timer.cpp Utils/Timer.h Utils/Utils.h Collisions/Collider.cpp Collisions/Collider.h Utils/FBO.cpp Utils/FBO.h engine.h)
 
 add_executable(2ds ${SOURCES})
 target_link_libraries(2ds

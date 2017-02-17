@@ -153,7 +153,7 @@ Image::Image(const char* file_name) {
 }
 
 Image::~Image() {
-	glDeleteTextures(1, &this->textureID);
+
 }
 
 GLuint Image::getTextureID() const {

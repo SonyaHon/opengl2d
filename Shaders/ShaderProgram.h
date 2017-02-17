@@ -28,6 +28,7 @@ public:
 	void loadFloat(GLint, GLfloat);
 	void loadVector3(GLint, glm::vec3);
 	void loadVector4(GLint, glm::vec4);
+	void loadVector2(GLint, glm::vec2);
 	void loadBool(GLint, bool);
 	void loadMatrix4(GLint, glm::mat4);
 

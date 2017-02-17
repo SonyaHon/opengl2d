@@ -4,6 +4,7 @@
 CMakeFiles/2ds.dir/Collisions/Collider.cpp.o: ../Collisions/Collider.cpp
 CMakeFiles/2ds.dir/Collisions/Collider.cpp.o: ../Collisions/Collider.h
 CMakeFiles/2ds.dir/Collisions/Collider.cpp.o: ../Utils/Enums.h
+CMakeFiles/2ds.dir/Collisions/Collider.cpp.o: ../Utils/Utils.h
 CMakeFiles/2ds.dir/Collisions/Collider.cpp.o: /usr/local/include/glm/common.hpp
 CMakeFiles/2ds.dir/Collisions/Collider.cpp.o: /usr/local/include/glm/detail/_fixes.hpp
 CMakeFiles/2ds.dir/Collisions/Collider.cpp.o: /usr/local/include/glm/detail/_swizzle.hpp
@@ -526,6 +527,7 @@ CMakeFiles/2ds.dir/main.cpp.o: ../Utils/FBO.h
 CMakeFiles/2ds.dir/main.cpp.o: ../Utils/Renderer.h
 CMakeFiles/2ds.dir/main.cpp.o: ../Utils/Timer.h
 CMakeFiles/2ds.dir/main.cpp.o: ../Utils/Utils.h
+CMakeFiles/2ds.dir/main.cpp.o: ../engine.h
 CMakeFiles/2ds.dir/main.cpp.o: ../main.cpp
 CMakeFiles/2ds.dir/main.cpp.o: /usr/local/include/freetype2/freetype/config/ftheader.h
 CMakeFiles/2ds.dir/main.cpp.o: /usr/local/include/ft2build.h

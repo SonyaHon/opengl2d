@@ -13,6 +13,7 @@
 #include "../Shaders/ShaderProgram.h"
 #include "Camera.h"
 #include <vector>
+#include <map>
 #include <ft2build.h>
 #include FT_FREETYPE_H
 #include <string.h>
@@ -38,6 +39,9 @@ private:
 	ShaderProgram finalFBORender;
 	ShaderProgram setContrastProgram;
 	ShaderProgram flatColorProgram;
+	ShaderProgram circleColorProgram;
+	ShaderProgram blurProgramHorizontal;
+	ShaderProgram blurProgramVertical;
 
 	//Background image vars
 	bool hasBgImage;
@@ -53,16 +57,20 @@ private:
 	GLuint mainSquadVAO;
 	GLuint mainSquadVBOS[2];
 
-	FBO first;
-	FBO second;
-	bool isUsingFirts;
+	Display display;
+	std::map<std::string, std::pair<FBO, int> > fbos;
+	FBO zeroLayer;
+
+	std::string currentFBO;
+
+	int max_layer;
 
 public:
 
 	Renderer(Display& display, Camera& cam);
 	virtual ~Renderer();
 
-	void render_simple(Sprite& sprite); // Rendering sprite to the first FBO
+	void render_simple(Sprite& sprite); // Rendering sprite to the current FBO
 
 	void prepare(); // Clear the screen and render bg image if this is the case
 
@@ -81,8 +89,16 @@ public:
 
 	//FBO stuff
 	void update(); // update draw to the deafult fbo to the rectangle.
+	void createLayer(std::string layer_name, int layer_num);
+	void bindLayer(std::string layer_name);
 
+	//Post Procces
 	void setContrast(float value);
+
+	void setHorizontalBlur(float strength);
+	void setVerticalBlur(float strength);
+	void setBlur(float strength);
+
 
 	void drawCircle(GLfloat x, GLfloat y, GLfloat radius, glm::vec4 color);
 	void drawCirlce(GLfloat x, GLfloat y, GLfloat radius, GLfloat r, GLfloat g, GLfloat b, GLfloat a);

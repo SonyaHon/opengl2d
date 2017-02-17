@@ -30,7 +30,7 @@ GLuint FBO::getTexture_id() const {
 	return texture_id;
 }
 
-FBO::~FBO() {
+void FBO::cleanUp() {
 	glDeleteTextures(1, &texture_id);
 	glDeleteFramebuffers(1, &fbo_id);
 }

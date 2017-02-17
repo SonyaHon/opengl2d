@@ -434,4 +434,8 @@ bool Sprite::simpleCollide(Sprite &target) {
     return this->collider.collisionSimple(position.x, position.y, target.collider, target.position.x, target.position.y);
 }
 
+void Sprite::setCollider(ColliderType type, GLfloat x, GLfloat y, GLuint size1) {
+	collider = Collider(type, x, y, size1);
+}
+
 

@@ -38,7 +38,7 @@ private: //Fields
 	//Sprite origin point
 	OriginEnum currOrigin;
 
-	//Mesh`s uv`s and texture`s real size (not visible one)
+	//Mesh`s uv`s and texture`s real size (not visible zeroLayer)
 	int img_h;
 	int img_w;
 	int img_x;
@@ -73,6 +73,7 @@ public:
 	//<editor-fold desc="Setters">
 
     void setCollider(ColliderType type, GLfloat x, GLfloat y, GLuint size1, GLuint size2);
+	void setCollider(ColliderType type, GLfloat x, GLfloat y, GLuint size1);
 	void setPosition(const glm::vec2 &position);
 	void setPosition(GLfloat x, GLfloat y);
 	void setZLevel(GLfloat zLevel);

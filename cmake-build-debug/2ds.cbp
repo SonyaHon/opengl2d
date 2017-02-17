@@ -148,6 +148,9 @@
 		<Unit filename="/home/sonyahon/workspace/cpp/opengl2d/Utils/Utils.h">
 			<Option target="2ds"/>
 		</Unit>
+		<Unit filename="/home/sonyahon/workspace/cpp/opengl2d/engine.h">
+			<Option target="2ds"/>
+		</Unit>
 		<Unit filename="/home/sonyahon/workspace/cpp/opengl2d/main.cpp">
 			<Option target="2ds"/>
 		</Unit>

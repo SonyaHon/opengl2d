@@ -1,27 +1,18 @@
-#include <iostream>
-#include "Utils/Display.h"
-#include "Utils/Camera.h"
-#include "Utils/Renderer.h"
-#include "Utils/Timer.h"
-#include "Utils/Utils.h"
+#include "engine.h"
 
 int main() {
+    Display	mainDisplay = Display(1280, 720, "The Game", false);
+    Camera	camera;
+    Renderer	renderer(mainDisplay, camera);
 
-	Display mainDisplay = Display(1280, 720, "The Game", false);
 
-
-
-	Camera camera;
-	Renderer renderer = Renderer(mainDisplay, camera);
-
-	while(!mainDisplay.needsToBeClosed()) {
+    while (!mainDisplay.needsToBeClosed()) {
 		renderer.prepare();
 
 
 
 		renderer.update();
-        mainDisplay.update();
+		mainDisplay.update();
 	}
-
-	return 0;
+    return 0;
 }

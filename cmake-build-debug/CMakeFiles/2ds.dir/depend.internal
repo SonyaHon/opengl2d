@@ -5,6 +5,7 @@ CMakeFiles/2ds.dir/Collisions/Collider.cpp.o
  /home/sonyahon/workspace/cpp/opengl2d/Collisions/Collider.cpp
  /home/sonyahon/workspace/cpp/opengl2d/Collisions/Collider.h
  /home/sonyahon/workspace/cpp/opengl2d/Utils/Enums.h
+ /home/sonyahon/workspace/cpp/opengl2d/Utils/Utils.h
  /usr/local/include/glm/common.hpp
  /usr/local/include/glm/detail/_fixes.hpp
  /usr/local/include/glm/detail/_swizzle.hpp
@@ -527,6 +528,7 @@ CMakeFiles/2ds.dir/main.cpp.o
  /home/sonyahon/workspace/cpp/opengl2d/Utils/Renderer.h
  /home/sonyahon/workspace/cpp/opengl2d/Utils/Timer.h
  /home/sonyahon/workspace/cpp/opengl2d/Utils/Utils.h
+ /home/sonyahon/workspace/cpp/opengl2d/engine.h
  /home/sonyahon/workspace/cpp/opengl2d/main.cpp
  /usr/local/include/freetype2/freetype/config/ftheader.h
  /usr/local/include/ft2build.h
