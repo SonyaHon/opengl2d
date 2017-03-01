@@ -239,7 +239,6 @@ void Renderer::renderText(std::string text, GLfloat x, GLfloat y, GLfloat scale,
 	glm::vec4 color = glm::vec4(1, 1, 1, 1);
 	renderText(text, x, y, scale, color, font_id);
 }
-
 void Renderer::update() {
 	glBindTexture(GL_TEXTURE_2D, 0);
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
@@ -268,7 +267,6 @@ void Renderer::update() {
 	glBindVertexArray(0);
 	finalFBORender.stop();
 }
-
 void Renderer::setContrast(float value) {
 	glBindTexture(GL_TEXTURE_2D, 0);
 	glBindFramebuffer(GL_FRAMEBUFFER, fbos[currentFBO].first.getFbo_id());
@@ -358,7 +356,6 @@ void Renderer::drawCircle(GLfloat x, GLfloat y, GLfloat radius, glm::vec4 color)
 	circleColorProgram.stop();
 	glDeleteBuffers(1, &tempVBO);
 	glDeleteVertexArrays(1, &tempVAO);
-
 }
 void Renderer::drawCirlce(GLfloat x, GLfloat y, GLfloat radius, GLfloat r, GLfloat g, GLfloat b, GLfloat a) {
 	glm::vec4 color = glm::vec4(r, g, b, a);
@@ -371,12 +368,10 @@ void Renderer::bindLayer(std::string layer_num) {
 	}
 	currentFBO = layer_num;
 }
-
 void Renderer::setBlur(float strength) {
 	this->setHorizontalBlur(strength);
 	this->setVerticalBlur(strength);
 }
-
 void Renderer::setHorizontalBlur(float strength) {
 	if(strength > 1) strength = 1;
 	GLfloat value = display.getMainWindowWidth() * strength;
@@ -395,7 +390,6 @@ void Renderer::setHorizontalBlur(float strength) {
 	glBindVertexArray(0);
 	blurProgramHorizontal.stop();
 }
-
 void Renderer::setVerticalBlur(float strength) {
 	if(strength > 1) strength = 1;
 	GLfloat value = display.getMainWindowHeight() * strength;
@@ -414,8 +408,6 @@ void Renderer::setVerticalBlur(float strength) {
 	glBindVertexArray(0);
 	blurProgramHorizontal.stop();
 }
-
-
 void Renderer::createLayer(std::string layer_name, int layer_num) {
 
 	bool isRebind = false;
@@ -446,8 +438,6 @@ void Renderer::createLayer(std::string layer_name, int layer_num) {
 
 //TODO More Post proccessing shit.
 //TODO custom shaders, and shit.
-//TODO More prototype functions.
-//TODO layer key -> pair<string, int>
 
 /*	PostProccessing:
  * 	Contrast

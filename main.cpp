@@ -5,14 +5,16 @@ int main() {
     Camera	camera;
     Renderer	renderer(mainDisplay, camera);
 
+	Image img = Image("./assets/imgs/mario.png");
+	Sprite sprite = Sprite(&img);
 
     while (!mainDisplay.needsToBeClosed()) {
-		renderer.prepare();
+	renderer.prepare();
 
+		renderer.render_simple(sprite);
 
-
-		renderer.update();
-		mainDisplay.update();
-	}
+	renderer.update();
+	mainDisplay.update();
+    }
     return 0;
 }
