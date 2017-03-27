@@ -201,11 +201,13 @@ Sprite::Sprite(Image *texture, int img_x, int img_y, int img_w, int img_h) : tex
 	glBindVertexArray(0);
 }
 
+
+
 Sprite::~Sprite() {
-	glDeleteVertexArrays(1, &this->VAO_ID);
+	/*glDeleteVertexArrays(1, &this->VAO_ID);
 	for(size_t i = 0; i < this->VBOs.size(); i++) {
 		glDeleteBuffers(1, &this->VBOs[i]);
-	}
+	}*/
 }
 
 GLuint Sprite::getHeight() const {
@@ -373,6 +375,10 @@ void Sprite::flipVertically() {
 }
 
 void Sprite::setTetxturePosition(int img_x, int img_y, int img_w, int img_h) {
+	this->img_h = img_h;
+	this->img_w = img_w;
+	this->img_x = img_x;
+	this->img_y = img_y;
 	const GLfloat uv_buffer[] = {img_x / rW, (rH - img_h - img_y) / rH,
 								 img_x / rW, (rH - img_y) / rH,
 								 (img_x + img_w) / rW, (rH - img_y) / rH,
@@ -436,6 +442,10 @@ bool Sprite::simpleCollide(Sprite &target) {
 
 void Sprite::setCollider(ColliderType type, GLfloat x, GLfloat y, GLuint size1) {
 	collider = Collider(type, x, y, size1);
+}
+
+glm::vec2 Sprite::getColliderPosition() {
+	return glm::vec2(this->position + collider.getPosition());
 }
 
 

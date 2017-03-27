@@ -4,7 +4,7 @@
 #include <iostream>
 #include <vector>
 
-ShaderProgram::~ShaderProgram() {
+void ShaderProgram::CleanUp() {
 	this->stop();
 	glDetachShader(programID, vShader);
 	if(geom) glDetachShader(programID, gShader);

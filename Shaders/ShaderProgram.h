@@ -20,7 +20,7 @@ private:
 public:
 	ShaderProgram(std::string, std::string);
 	ShaderProgram(std::string, std::string, std::string);
-	virtual ~ShaderProgram();
+	void CleanUp();
 
 	void start();
 	void stop();

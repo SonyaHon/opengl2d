@@ -105,6 +105,11 @@ public:
 
 	void drawRect(GLfloat x, GLfloat y, GLfloat width, GLfloat height, glm::vec4 color);
 	void drawRect(GLfloat x, GLfloat y, GLfloat width, GLfloat height, GLfloat r, GLfloat g, GLfloat b, GLfloat a);
+
+	glm::mat4 &getProjection_matrix();
+
+	void render();
+	void render(Sprite &sprite);
 };
 
 

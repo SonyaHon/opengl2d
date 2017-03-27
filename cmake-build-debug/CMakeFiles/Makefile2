@@ -66,7 +66,7 @@ CMAKE_BINARY_DIR = /home/sonyahon/workspace/cpp/opengl2d/cmake-build-debug
 CMakeFiles/2ds.dir/all:
 	$(MAKE) -f CMakeFiles/2ds.dir/build.make CMakeFiles/2ds.dir/depend
 	$(MAKE) -f CMakeFiles/2ds.dir/build.make CMakeFiles/2ds.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/sonyahon/workspace/cpp/opengl2d/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11 "Built target 2ds"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/sonyahon/workspace/cpp/opengl2d/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13 "Built target 2ds"
 .PHONY : CMakeFiles/2ds.dir/all
 
 # Include target in all.
@@ -76,7 +76,7 @@ all: CMakeFiles/2ds.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/2ds.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sonyahon/workspace/cpp/opengl2d/cmake-build-debug/CMakeFiles 11
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sonyahon/workspace/cpp/opengl2d/cmake-build-debug/CMakeFiles 13
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/2ds.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/sonyahon/workspace/cpp/opengl2d/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/2ds.dir/rule

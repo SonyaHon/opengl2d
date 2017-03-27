@@ -58,3 +58,7 @@ Collider::Collider(ColliderType type, GLfloat x, GLfloat y, GLfloat size1) : typ
 		width = size1;
 	}
 }
+
+const glm::vec2 &Collider::getPosition() const {
+	return position;
+}

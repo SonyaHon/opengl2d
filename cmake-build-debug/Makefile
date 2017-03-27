@@ -150,6 +150,60 @@ Collisions/Collider.cpp.s:
 	$(MAKE) -f CMakeFiles/2ds.dir/build.make CMakeFiles/2ds.dir/Collisions/Collider.cpp.s
 .PHONY : Collisions/Collider.cpp.s
 
+GAME/Character.o: GAME/Character.cpp.o
+
+.PHONY : GAME/Character.o
+
+# target to build an object file
+GAME/Character.cpp.o:
+	$(MAKE) -f CMakeFiles/2ds.dir/build.make CMakeFiles/2ds.dir/GAME/Character.cpp.o
+.PHONY : GAME/Character.cpp.o
+
+GAME/Character.i: GAME/Character.cpp.i
+
+.PHONY : GAME/Character.i
+
+# target to preprocess a source file
+GAME/Character.cpp.i:
+	$(MAKE) -f CMakeFiles/2ds.dir/build.make CMakeFiles/2ds.dir/GAME/Character.cpp.i
+.PHONY : GAME/Character.cpp.i
+
+GAME/Character.s: GAME/Character.cpp.s
+
+.PHONY : GAME/Character.s
+
+# target to generate assembly for a file
+GAME/Character.cpp.s:
+	$(MAKE) -f CMakeFiles/2ds.dir/build.make CMakeFiles/2ds.dir/GAME/Character.cpp.s
+.PHONY : GAME/Character.cpp.s
+
+GAME/Tile.o: GAME/Tile.cpp.o
+
+.PHONY : GAME/Tile.o
+
+# target to build an object file
+GAME/Tile.cpp.o:
+	$(MAKE) -f CMakeFiles/2ds.dir/build.make CMakeFiles/2ds.dir/GAME/Tile.cpp.o
+.PHONY : GAME/Tile.cpp.o
+
+GAME/Tile.i: GAME/Tile.cpp.i
+
+.PHONY : GAME/Tile.i
+
+# target to preprocess a source file
+GAME/Tile.cpp.i:
+	$(MAKE) -f CMakeFiles/2ds.dir/build.make CMakeFiles/2ds.dir/GAME/Tile.cpp.i
+.PHONY : GAME/Tile.cpp.i
+
+GAME/Tile.s: GAME/Tile.cpp.s
+
+.PHONY : GAME/Tile.s
+
+# target to generate assembly for a file
+GAME/Tile.cpp.s:
+	$(MAKE) -f CMakeFiles/2ds.dir/build.make CMakeFiles/2ds.dir/GAME/Tile.cpp.s
+.PHONY : GAME/Tile.cpp.s
+
 Shaders/ShaderProgram.o: Shaders/ShaderProgram.cpp.o
 
 .PHONY : Shaders/ShaderProgram.o
@@ -405,6 +459,12 @@ help:
 	@echo "... Collisions/Collider.o"
 	@echo "... Collisions/Collider.i"
 	@echo "... Collisions/Collider.s"
+	@echo "... GAME/Character.o"
+	@echo "... GAME/Character.i"
+	@echo "... GAME/Character.s"
+	@echo "... GAME/Tile.o"
+	@echo "... GAME/Tile.i"
+	@echo "... GAME/Tile.s"
 	@echo "... Shaders/ShaderProgram.o"
 	@echo "... Shaders/ShaderProgram.i"
 	@echo "... Shaders/ShaderProgram.s"

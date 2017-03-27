@@ -126,12 +126,12 @@ void Renderer::setClearColor(GLfloat r, GLfloat g, GLfloat b) {
 	this->B = b;
 }
 void Renderer::render_simple(Sprite &sprite) {
-	glBindTexture(GL_TEXTURE_2D, 0);
-	glBindFramebuffer(GL_FRAMEBUFFER, fbos[currentFBO].first.getFbo_id());
 	simple_shader_program.start();
 	simple_shader_program.loadMatrix4(simple_shader_program.getUniformLocation("transformationMatrix"), sprite.genModelMatrix());
 	simple_shader_program.loadMatrix4(simple_shader_program.getUniformLocation("viewMatrix"), cam->getViewMatrix());
 	simple_shader_program.loadMatrix4(simple_shader_program.getUniformLocation("projectionMatrix"), this->projection_matrix);
+	glBindTexture(GL_TEXTURE_2D, 0);
+	glBindFramebuffer(GL_FRAMEBUFFER, fbos[currentFBO].first.getFbo_id());
 	glBindVertexArray(sprite.getVAO_ID());
 	glEnableVertexAttribArray(0);
 	glEnableVertexAttribArray(1);
@@ -189,6 +189,10 @@ void Renderer::loadFont(std::string path, unsigned int font_height, GLuint font_
 	}
 }
 void Renderer::renderText(std::string text, GLfloat x, GLfloat y, GLfloat scale, glm::vec4 color, GLuint font_id) {
+
+	glBindTexture(GL_TEXTURE_2D, 0);
+	glBindFramebuffer(GL_FRAMEBUFFER, fbos[currentFBO].first.getFbo_id());
+
 	textShader.start();
 	textShader.loadVector4(textShader.getUniformLocation("textColor"), color);
 	textShader.loadMatrix4(textShader.getUniformLocation("projection"), projection_matrix);
@@ -251,7 +255,6 @@ void Renderer::update() {
 	glEnableVertexAttribArray(1);
 	glActiveTexture(GL_TEXTURE0);
 	int layer_num = 0;
-
 	while(layer_num < max_layer) {
 		for (auto tree_iterator = fbos.begin(); tree_iterator != fbos.end(); ++tree_iterator) {
 			if(layer_num == fbos[tree_iterator->first].second) {
@@ -315,7 +318,6 @@ void Renderer::drawRect(GLfloat x, GLfloat y, GLfloat width, GLfloat height, glm
 	flatColorProgram.stop();
 	glDeleteBuffers(1, &tempVBO);
 	glDeleteVertexArrays(1, &tempVAO);
-
 }
 void
 Renderer::drawRect(GLfloat x, GLfloat y, GLfloat width, GLfloat height, GLfloat r, GLfloat g, GLfloat b, GLfloat a) {
@@ -435,10 +437,38 @@ void Renderer::createLayer(std::string layer_name, int layer_num) {
 		max_layer++;
 	}
 }
+glm::mat4 &Renderer::getProjection_matrix() {
+	return projection_matrix;
+}
+void Renderer::render() {
+	glBindTexture(GL_TEXTURE_2D, 0);
+	glBindFramebuffer(GL_FRAMEBUFFER, fbos[currentFBO].first.getFbo_id());
+	glBindVertexArray(this->mainSquadVAO);
+	glEnableVertexAttribArray(0);
+	glEnableVertexAttribArray(1);
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, fbos[currentFBO].first.getTexture_id());
+	glDrawArrays(GL_TRIANGLES, 0, 6);
+	glDisableVertexAttribArray(0);
+	glDisableVertexAttribArray(1);
+	glBindVertexArray(0);
+}
+void Renderer::render(Sprite &sprite) {
+	glBindTexture(GL_TEXTURE_2D, 0);
+	glBindFramebuffer(GL_FRAMEBUFFER, fbos[currentFBO].first.getFbo_id());
+	glBindVertexArray(sprite.getVAO_ID());
+	glEnableVertexAttribArray(0);
+	glEnableVertexAttribArray(1);
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, sprite.getTexture()->getTextureID());
+	glDrawElements(GL_TRIANGLES, sprite.getVertexCount(), GL_UNSIGNED_INT, (void *)0);
+	glDisableVertexAttribArray(0);
+	glDisableVertexAttribArray(1);
+	glBindVertexArray(0);
+}
+
 
 //TODO More Post proccessing shit.
-//TODO custom shaders, and shit.
-
 /*	PostProccessing:
  * 	Contrast
  * 	Blur

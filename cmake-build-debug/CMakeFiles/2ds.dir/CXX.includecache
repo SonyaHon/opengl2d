@@ -20,6 +20,24 @@ glm/glm.hpp
 ../Utils/Enums.h
 /home/sonyahon/workspace/cpp/opengl2d/Utils/Enums.h
 
+/home/sonyahon/workspace/cpp/opengl2d/GAME/Character.cpp
+Character.h
+/home/sonyahon/workspace/cpp/opengl2d/GAME/Character.h
+
+/home/sonyahon/workspace/cpp/opengl2d/GAME/Character.h
+../engine.h
+/home/sonyahon/workspace/cpp/opengl2d/engine.h
+Tile.h
+/home/sonyahon/workspace/cpp/opengl2d/GAME/Tile.h
+
+/home/sonyahon/workspace/cpp/opengl2d/GAME/Tile.cpp
+Tile.h
+/home/sonyahon/workspace/cpp/opengl2d/GAME/Tile.h
+
+/home/sonyahon/workspace/cpp/opengl2d/GAME/Tile.h
+../engine.h
+/home/sonyahon/workspace/cpp/opengl2d/engine.h
+
 /home/sonyahon/workspace/cpp/opengl2d/Shaders/ShaderProgram.cpp
 ShaderProgram.h
 /home/sonyahon/workspace/cpp/opengl2d/Shaders/ShaderProgram.h
@@ -179,6 +197,10 @@ Utils/Camera.h
 /home/sonyahon/workspace/cpp/opengl2d/main.cpp
 engine.h
 /home/sonyahon/workspace/cpp/opengl2d/engine.h
+GAME/Character.h
+/home/sonyahon/workspace/cpp/opengl2d/GAME/Character.h
+GAME/Tile.h
+/home/sonyahon/workspace/cpp/opengl2d/GAME/Tile.h
 
 /usr/local/include/freetype2/freetype/config/ftheader.h
 

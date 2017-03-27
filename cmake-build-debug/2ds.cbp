@@ -94,6 +94,18 @@
 		<Unit filename="/home/sonyahon/workspace/cpp/opengl2d/Collisions/Collider.h">
 			<Option target="2ds"/>
 		</Unit>
+		<Unit filename="/home/sonyahon/workspace/cpp/opengl2d/GAME/Character.cpp">
+			<Option target="2ds"/>
+		</Unit>
+		<Unit filename="/home/sonyahon/workspace/cpp/opengl2d/GAME/Character.h">
+			<Option target="2ds"/>
+		</Unit>
+		<Unit filename="/home/sonyahon/workspace/cpp/opengl2d/GAME/Tile.cpp">
+			<Option target="2ds"/>
+		</Unit>
+		<Unit filename="/home/sonyahon/workspace/cpp/opengl2d/GAME/Tile.h">
+			<Option target="2ds"/>
+		</Unit>
 		<Unit filename="/home/sonyahon/workspace/cpp/opengl2d/Shaders/ShaderProgram.cpp">
 			<Option target="2ds"/>
 		</Unit>

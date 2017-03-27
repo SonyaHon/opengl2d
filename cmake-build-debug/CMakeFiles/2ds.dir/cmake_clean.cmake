@@ -9,6 +9,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/2ds.dir/Utils/Timer.cpp.o"
   "CMakeFiles/2ds.dir/Collisions/Collider.cpp.o"
   "CMakeFiles/2ds.dir/Utils/FBO.cpp.o"
+  "CMakeFiles/2ds.dir/GAME/Character.cpp.o"
+  "CMakeFiles/2ds.dir/GAME/Tile.cpp.o"
   "2ds.pdb"
   "2ds"
 )

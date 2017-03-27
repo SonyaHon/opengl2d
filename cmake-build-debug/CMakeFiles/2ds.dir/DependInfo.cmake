@@ -5,6 +5,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/sonyahon/workspace/cpp/opengl2d/Collisions/Collider.cpp" "/home/sonyahon/workspace/cpp/opengl2d/cmake-build-debug/CMakeFiles/2ds.dir/Collisions/Collider.cpp.o"
+  "/home/sonyahon/workspace/cpp/opengl2d/GAME/Character.cpp" "/home/sonyahon/workspace/cpp/opengl2d/cmake-build-debug/CMakeFiles/2ds.dir/GAME/Character.cpp.o"
+  "/home/sonyahon/workspace/cpp/opengl2d/GAME/Tile.cpp" "/home/sonyahon/workspace/cpp/opengl2d/cmake-build-debug/CMakeFiles/2ds.dir/GAME/Tile.cpp.o"
   "/home/sonyahon/workspace/cpp/opengl2d/Shaders/ShaderProgram.cpp" "/home/sonyahon/workspace/cpp/opengl2d/cmake-build-debug/CMakeFiles/2ds.dir/Shaders/ShaderProgram.cpp.o"
   "/home/sonyahon/workspace/cpp/opengl2d/Sprites/Image.cpp" "/home/sonyahon/workspace/cpp/opengl2d/cmake-build-debug/CMakeFiles/2ds.dir/Sprites/Image.cpp.o"
   "/home/sonyahon/workspace/cpp/opengl2d/Sprites/Sprite.cpp" "/home/sonyahon/workspace/cpp/opengl2d/cmake-build-debug/CMakeFiles/2ds.dir/Sprites/Sprite.cpp.o"

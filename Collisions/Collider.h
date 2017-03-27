@@ -17,6 +17,9 @@ public:
     Collider();
     Collider(ColliderType type, GLfloat x, GLfloat y, GLfloat size1, GLfloat size2);
 	Collider(ColliderType type, GLfloat x, GLfloat y, GLfloat size1);
+
+	const glm::vec2 &getPosition() const;
+
 	void setColliderSize(GLfloat size1, GLfloat size2);
     bool collisionSimple(GLfloat myX, GLfloat myY, Collider &target, GLfloat targetX, GLfloat targetY);
 };

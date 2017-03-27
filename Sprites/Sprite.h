@@ -68,6 +68,9 @@ public:
 	GLuint getVAO_ID() const;
 	GLuint getVertexCount() const;
 	Image *getTexture() const;
+
+	glm::vec2 getColliderPosition();
+
 	//</editor-fold>
 
 	//<editor-fold desc="Setters">
